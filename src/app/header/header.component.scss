@@ -1,0 +1,21 @@
+.top-head{
+    font-size: 13px;
+    a{
+        color: #222;
+    }
+    li{
+        cursor: pointer;
+        i{
+            font-size: 25px;
+        }
+    }
+}
+.nav-header{
+    border-bottom: 1px solid #0DB26B;
+    a.navbar-brand{
+        width: 200px;
+        > img{
+            max-width: 100%;
+        }
+    }
+}
