@@ -6,12 +6,14 @@ import {MatInputModule} from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { IndexComponent } from './index/index.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

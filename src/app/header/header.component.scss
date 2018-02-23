@@ -12,10 +12,25 @@
 }
 .nav-header{
     border-bottom: 1px solid #0DB26B;
-    a.navbar-brand{
-        width: 200px;
-        > img{
-            max-width: 100%;
+    nav{
+        > a.navbar-brand{
+            width: 200px;
+            > img{
+                max-width: 100%;
+            }
+        }
+        > div.collapse{
+            display: block !important;
+            > ul > li{
+                margin-left: 15px;
+                > a{
+                    font-size: 15px;
+                }
+            }
+            > a.doctorRegi{
+                text-decoration: none;
+                font-size: 15px;
+            }
         }
     }
 }
