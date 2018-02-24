@@ -10,8 +10,9 @@ export class IndexComponent implements OnInit {
   nearest: Array<any> = [
     {span:'Nearest', h1:'Hospitals'},
     {span:'Nearest', h1:'Blood Banks'},
-    {span:'Nearest', h1:'Pharmacies'}
+    {span:'Nearest', h1:'Pharmacy'}
   ];
+  dummy:boolean=false;
 
   constructor() { }
   _next(){
