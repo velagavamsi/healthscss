@@ -59,7 +59,30 @@
                             </div>
                           </div>
                           <div class="row">
-                            Row Content Two
+                            <div class="col-xs-12 col-md-12">
+                              <div class="row">
+                                <p class="col-xs-12 col-md-12">Advance Search</p>
+                              </div>
+                              <div class="row autoCompleteBlocks mb-3">
+                                <div class="col-xs-12 col-sm-4 col-md-4 px-0 mx-2">
+                                  <div class="row mx-0">
+                                      <span class="w-100 px-2" (click)="languageAutoComplete=true">
+                                          <p [hidden]="!languageAutoComplete">{{auto.name}}</p>
+                                          <a [hidden]="languageAutoComplete">language</a>
+                                          <i class="fa fa-sort-desc float-right" aria-hidden="true"></i>
+                                        </span>
+                                  </div>
+                                  <mat-form-field class="w-100" [hidden]="!languageAutoComplete">
+                                    <input matInput placeholder="Search language" aria-label="State" [(ngModel)]="auto.name" [matAutocomplete]="auto" [formControl]="stateCtrl" (keydown.enter)="selectedLanguage()">
+                                    <mat-autocomplete #auto="matAutocomplete">
+                                      <mat-option *ngFor="let state of filteredStates | async" [value]="state.name" (click)="selectedLanguage()">
+                                        <span>{{ state.name }}</span>
+                                      </mat-option>
+                                    </mat-autocomplete>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

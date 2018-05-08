@@ -54,12 +54,13 @@
                         background: rgba(255,255,255,.8);
                         border-radius: 3px;
                         > div.row:first-of-type{
-                            .form-control{
+                            input{
                                 border: none;
                                 border-right: 1px solid #cecece;
                                 border-radius: 0;
                                 color: #999;
                                 font-size: 14px;
+                                height: 38px;
                                 &::placeholder{  /* Firefox */
                                     color:#999;
                                 }
@@ -72,9 +73,30 @@
                             }
                             
                         }
+                        > div.row:nth-of-type(2) > div{
+                            > .autoCompleteBlocks > div {
+                                background: #fff;
+                                > div.row > span{
+                                    border: 1px solid #cecece;
+                                    background: #fff;
+                                    color: #999;
+                                    height: 38px;
+                                    line-height: 38px;
+                                    font-size: 14px;
+                                    cursor: pointer;
+                                    > i{
+                                        line-height: 34px;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
+}
+
+.mat-option:hover:not(.mat-option-disabled){
+    background: #ececec;
 }

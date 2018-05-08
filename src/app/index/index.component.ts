@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+
+import {Observable} from 'rxjs/Observable';
+import {startWith} from 'rxjs/operators/startWith';
+import {map} from 'rxjs/operators/map';
+
+export class State {
+  constructor(public name: string) { }
+}
 
 @Component({
   selector: 'app-index',
@@ -13,8 +22,43 @@ export class IndexComponent implements OnInit {
     {span:'Nearest', h1:'Pharmacy'}
   ];
   dummy:boolean=false;
+  languageAutoComplete: boolean=false;
 
-  constructor() { }
+  stateCtrl: FormControl;
+  filteredStates: Observable<any[]>;
+  selectLanguage: string;
+
+  states: State[] = [
+    {
+      name: 'Arkansas'
+    },
+    {
+      name: 'California'
+    },
+    {
+      name: 'Florida'
+    },
+    {
+      name: 'Texas'
+    }
+  ];
+
+  constructor() {
+    this.stateCtrl = new FormControl();
+    this.filteredStates = this.stateCtrl.valueChanges
+      .pipe(
+        startWith(''),
+        map(state => state ? this.filterStates(state) : this.states.slice())
+      );
+  }
+
+  filterStates(name: string) {
+    return this.states.filter(state =>
+      state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  }
+  selectedLanguage(){
+    this.languageAutoComplete=false;
+  }
   _next(){
      ++this.selectIndex;
      if(this.nearest.length == this.selectIndex)  
